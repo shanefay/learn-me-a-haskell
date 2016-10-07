@@ -15,6 +15,8 @@ and follow instructions carefully.
 
 We assume you atart in the directory called CS3016-1617
 
+### Command-Line setup
+
 Start up a command-line application
 
 e.g. `Terminal` on OS X, or `cmd` on Windows.
@@ -23,7 +25,11 @@ e.g. `Terminal` on OS X, or `cmd` on Windows.
 
 Run the batchfile `ITCLAB-SETUP.bat` here first.
 
+### Access relevant sub-directory
+
 For LabNN go into the sub-folder of the same name.
+
+### Testing your code
 
 From the command line, issue the following command
 
@@ -35,5 +41,13 @@ You might have to wait a while,
 particularly if this is the first time you do this.
 
 Your task is to get all the tests to succeed.
+
+### Submitting your work
+
+Move back up the top CS3016-1617 directory.
+
+Archive (ZIP/tar/compress) the relevant LabNN directory.
+
+Upload the corresponding archive to Blackboard.
 
 
