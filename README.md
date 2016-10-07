@@ -13,7 +13,7 @@ and follow instructions carefully.
 
 ## Generic Lab Instructions
 
-We assume you atart in the directory called CS3016-1617
+We assume you start in the directory called CS3016-1617
 
 ### Command-Line setup
 
