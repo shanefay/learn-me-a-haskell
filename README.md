@@ -8,6 +8,8 @@ This repo contains the Haskell Labs/Exercises for CS3016 in academic year 2016-1
 and the Schools Unix machines for students.
 
 To install on your own machine go to
+https://docs.haskellstack.org/en/stable/README/
+and follow instructions carefully.
 
 ## Generic Lab Instructions
 
