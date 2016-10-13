@@ -21,9 +21,11 @@ Start up a command-line application
 
 e.g. `Terminal` on OS X, or `cmd` on Windows.
 
-### Important: for Windows machines in ICTLAB I or II
+### Important: for School-supplied Windows machines in ICTLAB I or II
 
-Run the batchfile `ITCLAB-SETUP.bat` here first.
+Run the batchfile `ICTLAB-SETUP.bat` here first.
+
+Do **not** do this on your own personal Windows machine!
 
 ### Access relevant sub-directory
 
