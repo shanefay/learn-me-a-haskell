@@ -26,7 +26,7 @@ to run the tests.
 Remember to zip/tar or otherwise archive/compress the Lab01 folder
 and submit the ***whole*** thing to Blackboard.
 
-Currently supported are .zip,.tar,.tar.gz,.rar
+Currently supported archive formats are `.zip`, `.tar`, `.tar.gz`
 
 ## Running the Interpeter
 
