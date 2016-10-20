@@ -8,6 +8,8 @@ You have to complete 3 tasks
 2. Implement the `distance` function (6 marks)
 3. Implement the `pathlength` function (10 marks)
 
+The `sqrt` function from the Prelude might be useful.
+
 Details of these are in the file Lab01.hs
 in the src directory.
 
@@ -54,3 +56,4 @@ will show all the values currently defined in that file.
 You can exit the interpeter by typing
 
 `:q`
+
