@@ -4,10 +4,10 @@
 
 You have to complete 4 tasks
 
-1. Implement the `pathDistance` function (3 marks)
-2. Implement the `pathTime` function (3 marks)
-3. Implement the `getMeasured` function (5 marks)
-4. Implemented the `findFastest` function (9 marks)
+1. Implement `pathDistance` (3 marks)
+2. Implement `pathTime` (3 marks)
+3. Implement `getMeasured` (5 marks)
+4. Implement `findFastest` (9 marks)
 
 
 Details of these are in the file Lab02.hs
