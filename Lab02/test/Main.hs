@@ -150,8 +150,8 @@ tests
     , testGroup "pathTime (3 marks)" 
       [ testCase "pathTime [] {1 mark}" 
                 $ test_time_null
-      , testProperty "pathDistance [s] {1 mark}" path_time_single
-      , testProperty "pathDistance cat {1 mark}" path_time_cat
+      , testProperty "pathTime [s] {1 mark}" path_time_single
+      , testProperty "pathTime cat {1 mark}" path_time_cat
       ]
     , testGroup "getMeasured (5 marks)" 
       [ testCase "getMeasured [] {1 mark}" $ test_meas_null
