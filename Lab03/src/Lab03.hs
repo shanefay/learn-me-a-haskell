@@ -29,7 +29,12 @@ instance (Show k, Show d) => Show (BinTree k d) where
 
 -}
 treeShow :: (Show k, Show d) => Bool -> BinTree k d -> String
-treeShow _ _ = "treeShow not yet implemented"
+treeShow _ Empty = "Empty"
+treeShow _ (Leaf k d) = "Leaf " ++ show k ++ " " ++ show d 
+treeShow _ (Branch (Empty) k d (Empty)) = "Branch Empty" ++ " " ++ show k ++ " " ++ show d ++ " " ++  "Empty"
+treeShow _ (Branch (Empty) k  d (right)) = "Branch Empty" ++ " " ++ show k ++ " " ++ show d ++ " " ++ "(" ++ treeShow False right ++ ")" 
+treeShow _ (Branch (left) k d (Empty)) = "Branch " ++ "(" ++ treeShow False left  ++ ")" ++ " " ++ show k ++ " " ++ show d ++ " "++ "Empty"
+treeShow _ (Branch (left) k d (right)) = "Branch " ++ "(" ++ treeShow False left  ++ ")" ++ " " ++ show k ++ " " ++ show d ++ " "++ "(" ++ treeShow False right ++ ")"
 
 {- ====== Task 2 ===== 
 
@@ -44,7 +49,9 @@ treeShow _ _ = "treeShow not yet implemented"
 
 -}
 treeMap :: (k1 -> k2) -> (d1 -> d2) -> BinTree k1 d1 -> BinTree k2 d2
-treeMap _ _ _ = error "treeMap not implemented"
+treeMap kf df Empty = Empty
+treeMap kf df (Leaf k d) = Leaf (kf k) (df d)
+treeMap kf df (Branch (left) k d (right)) = Branch (treeMap kf df left) (kf k) (df d) (treeMap kf df right)
 
 
 {- ===== Task 3 =====
@@ -59,7 +66,15 @@ Implement an insertion function.
 
 -}
 treeInsert :: (Ord k) => k -> d -> BinTree k d -> BinTree k d
-treeInsert _ _ _ = Empty
+treeInsert k d Empty = Leaf k d
+treeInsert k d (Leaf a b) 
+  | k == a = Leaf k d
+  | k > a = Branch (Leaf a b) k d (Empty)
+  | otherwise = Branch (Empty) k d (Leaf a b)
+treeInsert k d (Branch (left) a b (right))
+  | k == a = Branch (left) k d (right)
+  | k > a = Branch (left) a b (treeInsert k d right)
+  | otherwise = Branch (treeInsert k d left) a b (right)
 
 {-   ===== Task 4 ======
 
@@ -67,7 +82,14 @@ Implement a lookup function
 
 -}
 treeLookup :: Ord k => k -> BinTree k d -> Maybe d
-treeLookup _ _ = error "treeInsert not yet implemented"
+treeLookup _ Empty = Nothing
+treeLookup key (Leaf k d)
+  | key == k = Just d
+  | otherwise = Nothing
+treeLookup key (Branch (left) k d (right))
+  | key == k = Just d
+  | key < k = treeLookup key left
+  | otherwise = treeLookup key right
 
 
 {- ===== TEST VALUES  ===  DO NOT MODIFY BELOW HERE ==== -}

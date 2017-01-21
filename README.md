@@ -53,3 +53,4 @@ Archive (ZIP/tar/compress) the relevant LabNN directory.
 Upload the corresponding archive to Blackboard.
 
 
+# learn-me-a-haskell

@@ -1,4 +1,4 @@
-{- FORENAME SURNAME STUDENT-ID -}
+{- Shane Fay 13311531 -}
 
 module Lab01 where
 
@@ -18,7 +18,7 @@ type Path = [Coord]
   Implement the function 'sqr' that squares its argument
 -}       
 sqr :: Double -> Double
-sqr d = -1.0
+sqr d = d*d
 
 {- Part 2
   Implement the function 'distance' 
@@ -26,15 +26,17 @@ sqr d = -1.0
   between its two coordinate arguments
 -}
 distance :: Coord -> Coord -> Distance
-distance (x1,y1) (x2,y2)  =  -1.0
+distance (x1,y1) (x2,y2)  =  sqrt(sqr(x1-x2)+sqr(y1-y2))
 
 {- Part 3
   Implement the function 'pathlength'
   that computes the length of a Path
 -}
 pathlength :: Path -> Distance
-pathlength p = -1.0
-
+pathlength [] = 0
+pathlength [x] = 0
+pathlength (x:y:[]) = distance x y
+pathlength (x:y:xs) = distance x y + pathlength (y:xs)
 
 {- ==== DO NOT CHANGE ANYTHING BELOW THIS LINE ==== -}
 

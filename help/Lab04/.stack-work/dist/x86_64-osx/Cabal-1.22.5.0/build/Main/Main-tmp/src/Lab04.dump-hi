@@ -1,0 +1,240 @@
+
+==================== FINAL INTERFACE ====================
+2016-12-20 17:18:27.962879 UTC
+
+interface main@main:Lab04 7103
+  interface hash: ad7bba84e0c4cee5835232eba19255ce
+  ABI hash: e0df22eba4209dd970f03ea39cf83bdb
+  export-list hash: 4f93b3aa36d155f82155f65065214c4c
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: e8fe081b83d39ff29d190674eed4c4bb
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Lab04.add_to
+  Lab04.done04
+  Lab04.execute04
+  Lab04.exit04
+  Lab04.getTreeList
+  Lab04.mkprompt
+  Lab04.prompt04
+  Lab04.thisIsLab04
+  Lab04.treeList
+  Lab04.treeRemove
+  Lab04.treeTotal
+  Lab04.State
+module dependencies: BinTree
+package dependencies: base-4.8.2.0* ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Monoid
+                         base-4.8.2.0:Data.Type.Equality base-4.8.2.0:GHC.Generics
+import  -/  base-4.8.2.0:Data.Maybe 1cb58de2b04ee3c0c0a7dc9201184aff
+import  -/  base-4.8.2.0:Data.Tuple 012ad951a59a9d85fe1de36a2f012986
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:GHC.Float e532d434ec2447d809887c0fca1d78a5
+import  -/  base-4.8.2.0:GHC.IO.Handle.Text 06d2dc7704bcfe88a2157fd04748ace5
+import  -/  base-4.8.2.0:GHC.List 0c736920522bbd14b770342776012ab6
+import  -/  base-4.8.2.0:GHC.Num 9f42750c866f5832ca565146bd660c60
+import  -/  base-4.8.2.0:GHC.Show 0e1d8380a8fb0cfb07ebeda3b70cbf38
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  base-4.8.2.0:System.IO 0899686bfc1d9ef72dff3de85e99862a
+import  -/  base-4.8.2.0:Text.Read ef0ef92fb7358ae94bab089940adfd2a
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  BinTree 03e75a5640ff3e092d41e970eca6a216
+  exports: 71448bd79c2ab5bcc92c157d1120de03
+  BinTree 81aefdecbef457d83b602830ff5d95a6
+  Branch 770df489c61d06c588dcf92a12ae9eb8
+  Empty cda84d3d71af71ac5a3a48fcf6a72805
+  Leaf 44887b80f944cca79476647b0ff99648
+  treeInsert 7475cf96315e3a4e3171a56d1fb96ed5
+  treeLookup 30a390682c1902385bfa69304d3f161b
+8eabb20770a3c1020064539bb8b6e24e
+  $wgetTreeList ::
+    BinTree.BinTree GHC.Base.String GHC.Types.Float -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0],
+     Unfolding: (\ ww :: BinTree.BinTree
+                           GHC.Base.String GHC.Types.Float ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (Lab04.getTreeList_$streeList ww)
+                   Lab04.getTreeList1) -}
+b97940defff2f9713f5e9a0468c8164a
+  type State =
+    (BinTree.BinTree GHC.Base.String GHC.Types.Float, GHC.Types.Float)
+a1102240177a6e74d0375019517e441d
+  add_to ::
+    Lab04.State
+    -> GHC.Base.String
+    -> GHC.Types.Float
+    -> BinTree.BinTree GHC.Base.String GHC.Types.Float
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(SL),1*U(1*U,A)><L,U><L,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ state :: Lab04.State
+                   k :: GHC.Base.String
+                   v :: GHC.Types.Float ->
+                 case state of wild { (,) x ds1 ->
+                 BinTree.treeInsert
+                   @ GHC.Base.String
+                   @ GHC.Types.Float
+                   GHC.Classes.$fOrd[]_$s$fOrd[]1
+                   k
+                   v
+                   x }) -}
+8d5bd6616f40888ac0dd167abbcd17d3
+  done04 :: [GHC.Types.Char] -> GHC.Types.Bool
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ command :: [GHC.Types.Char] ->
+                 GHC.Base.eqString command Lab04.done1) -}
+46c5ab7b6f04229f005abedf387c8ebd
+  done1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "exit"#) -}
+4236d57be6945a902af45a4db60dbc7e
+  execute04 ::
+    GHC.IO.Handle.Types.Handle
+    -> GHC.IO.Handle.Types.Handle
+    -> [GHC.Types.Char]
+    -> (BinTree.BinTree GHC.Base.String GHC.Types.Float,
+        GHC.Types.Float)
+    -> GHC.Types.IO
+         (BinTree.BinTree GHC.Base.String GHC.Types.Float, GHC.Types.Float)
+  {- Arity: 5, Strictness: <L,U><L,U><S,U><L,U(U,U(U))><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Lab04.execute1
+                  `cast`
+                (<GHC.IO.Handle.Types.Handle>_R
+                 ->_R <GHC.IO.Handle.Types.Handle>_R
+                 ->_R <[GHC.Types.Char]>_R
+                 ->_R <(BinTree.BinTree GHC.Base.String GHC.Types.Float,
+                        GHC.Types.Float)>_R
+                 ->_R Sym (GHC.Types.NTCo:IO[0]
+                               <(BinTree.BinTree GHC.Base.String GHC.Types.Float,
+                                 GHC.Types.Float)>_R)) -}
+f8d503b63afb4caf7df5dafc42d6b51a
+  execute1 ::
+    GHC.IO.Handle.Types.Handle
+    -> GHC.IO.Handle.Types.Handle
+    -> [GHC.Types.Char]
+    -> (BinTree.BinTree GHC.Base.String GHC.Types.Float,
+        GHC.Types.Float)
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          (BinTree.BinTree GHC.Base.String GHC.Types.Float,
+           GHC.Types.Float) #)
+  {- Arity: 5, Strictness: <L,U><L,U><S,U><L,U(U,U(U))><L,U> -}
+979fb288c313b230474758e40ae773dc
+  exit04 :: GHC.Base.Monad m => (a1, a) -> m a
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LLLC(S)L),1*U(A,A,A,1*C1(U),A)><L,1*U(A,1*U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ (m :: * -> *)
+                   @ a
+                   @ a1
+                   $dMonad :: GHC.Base.Monad m
+                   state :: (a1, a) ->
+                 GHC.Base.return
+                   @ m
+                   $dMonad
+                   @ a
+                   (case state of wild { (,) ds1 y -> y })) -}
+616ac270da030bf1a1127d88cf5325c5
+  getTreeList :: Lab04.State -> GHC.Base.String
+  {- Arity: 1, Strictness: <S(SL),1*U(1*U,A)>, Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ w :: Lab04.State ->
+                 case w of ww { (,) ww1 ww2 -> Lab04.$wgetTreeList ww1 }) -}
+769dfbc4bf0d4d5ef8e9c4dfe65b70af
+  getTreeList1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "\n"#) -}
+7c775f048a45bfaa13a82511f36f197d
+  getTreeList_$streeList ::
+    BinTree.BinTree GHC.Base.String GHC.Types.Float -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U> -}
+b3996a59abb20056226f57f484f0429f
+  mkprompt :: GHC.Show.Show a => (a1, a) -> GHC.Base.String
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LC(S)L),1*U(A,1*C1(U),A)><L,1*U(A,1*U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ a1 $dShow :: GHC.Show.Show a state :: (a1, a) ->
+                 GHC.Show.show
+                   @ a
+                   $dShow
+                   (case state of wild { (,) ds1 y -> y })) -}
+8f5f6d718767b800fde9e81e00fb39fc
+  prompt04 ::
+    GHC.Show.Show a =>
+    GHC.IO.Handle.Types.Handle -> (a1, a) -> GHC.Types.IO ()
+  {- Arity: 4,
+     Strictness: <L,1*U(A,1*C1(U),A)><S,U><L,1*U(A,1*U)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Lab04.prompt1
+                  `cast`
+                (forall a a1.
+                 <GHC.Show.Show a>_R
+                 ->_R <GHC.IO.Handle.Types.Handle>_R
+                 ->_R <(a1, a)>_R
+                 ->_R Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+9e6f12e3de131951e2d5589bf61435a2
+  prompt1 ::
+    GHC.Show.Show a =>
+    GHC.IO.Handle.Types.Handle
+    -> (a1, a)
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 4,
+     Strictness: <L,1*U(A,1*C1(U),A)><S,U><L,1*U(A,1*U)><L,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ a
+                   @ a1
+                   $dShow :: GHC.Show.Show a
+                   hout :: GHC.IO.Handle.Types.Handle
+                   state :: (a1, a)
+                   eta :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   hout
+                   (Lab04.mkprompt @ a @ a1 $dShow state)
+                   GHC.Types.False
+                   eta) -}
+c3b838dad7606e957eef18366e6560bc
+  thisIsLab04 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "This is Lab 4"#) -}
+4c19b54d41a160774c6117870146629e
+  treeList ::
+    (GHC.Show.Show k, GHC.Show.Show d) =>
+    BinTree.BinTree k d -> GHC.Base.String
+  {- Arity: 3, Strictness: <L,U(A,C(U),A)><L,U(A,C(U),A)><S,1*U> -}
+83afd6cbaeb45ca27a1ebbc42383f376
+  treeRemove ::
+    GHC.Classes.Ord k =>
+    k -> d -> BinTree.BinTree k d -> BinTree.BinTree k d
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,U(U(C(C1(U)),A),A,C(C1(U)),A,C(C1(U)),A,A,A)><L,U><L,U><S,1*U> -}
+253ad05ff27611acf7ee46384bf9c29c
+  treeTotal :: GHC.Float.Floating d => BinTree.BinTree k d -> d
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(U(U,U,U,U),A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A)><S,1*U> -}
+7e07accef2f3c47a215cf9488129bca9
+  treeTotal_$streeTotal ::
+    BinTree.BinTree k GHC.Types.Float -> GHC.Types.Float
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+"SPEC treeList @ String @ Float" [ALWAYS] forall $dShow :: GHC.Show.Show
+                                                             GHC.Base.String
+                                                 $dShow1 :: GHC.Show.Show GHC.Types.Float
+  Lab04.treeList @ [GHC.Types.Char] @ GHC.Types.Float $dShow $dShow1
+  = Lab04.getTreeList_$streeList
+"SPEC treeTotal _ @ Float" [ALWAYS] forall @ k
+                                           $dFloating :: GHC.Float.Floating GHC.Types.Float
+  Lab04.treeTotal @ k @ GHC.Types.Float $dFloating
+  = Lab04.treeTotal_$streeTotal @ k
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

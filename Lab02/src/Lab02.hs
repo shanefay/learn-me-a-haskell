@@ -1,4 +1,4 @@
-{- FORENAME SURNAME STUDENT-ID -}
+{- Shane Fay 13311531-}
 
 module Lab02 where
 
@@ -48,7 +48,9 @@ pathPace p = 100 * (fromInteger $ pathTime p) / (6 * (fromInteger $ pathDistance
 
 -}
 pathDistance :: SegPath -> Distance
-pathDistance _ = -2
+pathDistance []  = 0
+pathDistance [x] = distance x
+pathDistance (x:xs) = distance x + pathDistance xs
 
 {- ============ Task 2 =============
   Implement pathTime to compute the
@@ -57,7 +59,10 @@ pathDistance _ = -2
 
 -}
 pathTime :: SegPath -> Time
-pathTime = \ _ -> -1
+pathTime [] = 0
+pathTime [x] = time x
+pathTime (x:xs) = time x + pathTime xs
+{-pathTime = \ _ -> -1 -}
 
 {- ============ Task 3 =============
   Function getMeasured has two arguments
@@ -77,9 +82,16 @@ pathTime = \ _ -> -1
 getMeasured :: Distance -- desired distance of sub-SegPath
             -> SegPath    -- path
             -> SegPath    -- shortest path prefix greater than or equal to
-getMeasured rqdDist p = ("",0,0):p ++ p
+ 
+getMeasured _ [] = []
+getMeasured rqdDist (x:xs)
+  | distance x < rqdDist = [x] ++ getMeasured (rqdDist - distance x) xs
+  | distance x >= rqdDist = [x]
+  | otherwise             = []
+  {- if pathDistance < rqdDist return p
+    else - start adding up segments until you just exceed rqdDist-}
   
-{- ============ Task 3 =============
+{- ============ Task 4 =============
   Function findFastest has two arguments
 
   rqdDist :: Distance
@@ -103,7 +115,35 @@ findFastest :: Distance -- desired distance of sub-SegPath
             -> Maybe -- fail if path too short
                  ( SegPath   -- fastest sub-SegPath
                  , Speed ) -- fastest Speed
-findFastest rqdDist p = Just ([], 0.0)
+findFastest rqdDist [] = Nothing
+findFastest rqdDist p
+    | rqdDist > pathDistance b = Nothing
+    | otherwise = Just (maxSpeed a)
+  where a = getPaths rqdDist p
+        b = getMeasured rqdDist p
+
+getPaths :: Distance
+         -> SegPath
+         -> [(SegPath, Speed)]
+getPaths _ [] = []
+getPaths rqdDist (x:xs)
+  | pathDistance (x:xs) < rqdDist = []
+  | length (x:xs) > 0 = [tuple] ++ getPaths rqdDist xs
+  | otherwise = []
+  where tuple = (getMeasured rqdDist (x:xs), pathSpeed (getMeasured rqdDist (x:xs) ))
+
+maxSpeed :: [(SegPath, Speed)]
+            -> (SegPath, Speed)
+maxSpeed (x:xs) = getMaxTail x xs
+
+getMaxTail :: (SegPath, Speed)
+           -> [(SegPath, Speed)]
+           -> (SegPath, Speed)
+getMaxTail currentMax [] = currentMax
+getMaxTail (m, n) (p:ps) =
+  if n < (snd p)
+    then getMaxTail p ps
+    else getMaxTail (m, n) ps
 
 {- ==== DO NOT CHANGE ANYTHING BELOW THIS LINE ==== -}
 
